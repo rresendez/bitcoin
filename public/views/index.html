@@ -16,11 +16,12 @@
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 <!--Theme-->
+<link rel="stylesheet" href="/css/style.css">
 
 <script>$(function () {
 //This is where i get the json file from
 
-    $.getJSON('http://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2016-09-05', function (data) {
+    $.getJSON('http://api.coindesk.com/v1/bpi/historical/close.json?start=2010-09-01&end=2016-11-23', function (data) {
       var datb = [];
       var datc = data.bpi;
       var temp = [];
@@ -265,6 +266,7 @@ Highcharts.setOptions(Highcharts.theme);
 
   </head>
   <body>
-  <div id="container" style="height: 400px; min-width: 310px"></div>
+  <div id="container" style="height: 400px; min-width: 310px"></div></br>
+  <a href="/" id="bb" ><img width="50"  src="https://cdn3.iconfinder.com/data/icons/gray-toolbar-4/512/previous-512.png"></a>
   </body>
   </html>

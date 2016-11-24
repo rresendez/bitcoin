@@ -16,24 +16,25 @@
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 <!--Theme-->
+<link rel="stylesheet" href="/css/style.css">
 
 <script>$(function () {
 //This is where i get the json file from
 
-    $.getJSON('http://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05', function (data) {
+    $.getJSON('http://api.coindesk.com/v1/bpi/historical/close.json?start=2010-09-01&end=2016-11-23', function (data) {
       var datb = [];
       var datc = data.bpi;
       var temp = [];
       for (key in datc) {
-        temp.push(key);
+        var date = new Date(key);
+        temp.push(date.getTime());
+
         temp.push(datc[key]);
         console.log(temp);
         datb.push(temp);
         temp = [];
       }
-      console.log("Datb: " + datb);
-      console.log(datc);
-      console.log(datb[0][0]);
+
        //Chart Theme
 
        Highcharts.theme = {
@@ -251,7 +252,7 @@ Highcharts.setOptions(Highcharts.theme);
             },
 
             series: [{
-                name: 'AAPL',
+                name: 'Bitcoin',
                 data: datb,
                 tooltip: {
                     valueDecimals: 2
@@ -265,6 +266,7 @@ Highcharts.setOptions(Highcharts.theme);
 
   </head>
   <body>
-  <div id="container" style="height: 400px; min-width: 310px"></div>
+  <div id="container" style="height: 400px; min-width: 310px"></div></br>
+  <a href="/" id="bb" ><img width="50"  src="https://cdn3.iconfinder.com/data/icons/gray-toolbar-4/512/previous-512.png"></a>
   </body>
   </html>
